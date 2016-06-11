@@ -5,14 +5,11 @@ import THREE from 'three';
 const StillBlocks = (props) => {
   let blocks = props.blocks;
 
-  console.log(blocks, "blocks");
   return (
     <group>
       {
         blocks.map(block =>
           <mesh
-            castShadow
-            receiveShadow
             position={new THREE.Vector3(block.center.x,
                                         block.center.y
                                         ,block.center.z

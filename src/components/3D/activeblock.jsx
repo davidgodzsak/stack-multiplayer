@@ -7,8 +7,6 @@ const ActiveBlock = (props) => {
 
   return (
     <mesh
-      castShadow
-      receiveShadow
       position={new THREE.Vector3(block.center.x,
                                   block.center.y,
                                   block.center.z)}

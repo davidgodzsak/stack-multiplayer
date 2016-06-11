@@ -10,11 +10,11 @@ const Camera = (props) => (
   <group>
     <perspectiveCamera
       name="camera"
-      fov={100}
+      fov={10}
       aspect={props.width/props.height}
       near={0.1}
       far={10000}
-      position={new THREE.Vector3(-20,15,20)}
+      position={new THREE.Vector3(-20,props.yPos,20)}
       lookAt={new THREE.Vector3(0,0,0)}
     />
     <orthographicCamera
@@ -23,8 +23,8 @@ const Camera = (props) => (
       right = {props.width/18}
       top = {props.height/18}
       bottom = {props.height/-18}
-      position = {new THREE.Vector3(25,20,25)}
-      lookAt={new THREE.Vector3(0,0,0)}
+      position = {new THREE.Vector3(25,props.yPos+30,25)}
+      lookAt={new THREE.Vector3(0,props.yPos+5,0)}
       near={0.1}
       far={1000}
     />

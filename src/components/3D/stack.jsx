@@ -6,13 +6,10 @@ import StillBlocks from './stillblocks';
 import ActiveBlock from './activeblock';
 
 const Stack = (props) => {
-  let stack = props.stack;
-
-  console.log(stack, "stack");
   return (
     <group>
-      <ActiveBlock block={stack.active} />
-      <StillBlocks blocks={stack.blocks} />
+      <ActiveBlock block={props.active} />
+      <StillBlocks blocks={props.still} />
     </group>
   )
 }

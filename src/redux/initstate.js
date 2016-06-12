@@ -7,7 +7,7 @@ export default class InitialState{
     this.size = 15;
     this.height = 2;
     this.gradient = new Gradient().rnd(5);
-    this.gameState = 'WAITING';
+    this.gameState = 'MENU';
     this.speed = 0.7;
   }
 

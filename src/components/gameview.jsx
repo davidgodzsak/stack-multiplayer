@@ -23,9 +23,10 @@ export default class GameView extends React.Component {
     document.addEventListener('keydown',(event)=>{
       const keyName = event.key;
       if (keyName === ' ') {
-        if(this.props.gameState==='WAITING'){
-          this.props.actions.startGame();
-        }else if(this.props.gameState === 'MOVING'){
+        // if(this.props.gameState==='WAITING'){
+        //   this.props.actions.startGame();
+        // }else
+        if(this.props.gameState === 'MOVING'){
           this.props.actions.newBlock({...this.state.active});
         }
       }

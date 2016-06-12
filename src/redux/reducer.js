@@ -11,6 +11,10 @@ let init = new InitialState().generate();
 
 export default function reducer(state = init, action) {
   switch (action.type) {
+      case 'JOIN_GAME':
+        return joinGame(state);
+      case 'JOIN_ACCEPTED':
+        return joinAccepted(state, action.payload);
       case 'START_GAME':
         return moveBlock(state);
       case 'NEW_BLOCK':
@@ -24,9 +28,18 @@ export default function reducer(state = init, action) {
 }
 
 //------------------------------------------------------------------------------reducer functions logic
+function joinGame(state){
+  return {state,gameState:'JOINING'};
+}
+
+function joinAccepted(state,payload){
+  let newState = {...payload,gameState:'WAITING'};
+  return newState;
+}
 
 function newBlock(state,active) {
   //gradient
+  console.log('new');
   let gradState={...state,gradient:setGradient(state)};
 
   //new block

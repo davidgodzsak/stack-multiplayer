@@ -9,7 +9,7 @@ var io = socketio.listen(server);
 
 
 
-app.use(express.static(__dirname, 'public'));
+app.use(express.static('public'));
 
 //routes
 // app.get('/', function (req, res) {

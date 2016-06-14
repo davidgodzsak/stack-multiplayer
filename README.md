@@ -1,5 +1,6 @@
-# stack-multiplayer
-A multiplayer game based on Stack
+# Stack multiplayer
+A multiplayer game based on Stack by Ketchapp
+https://www.youtube.com/watch?v=62wMiyt82ng
 
 ###Instructions
 

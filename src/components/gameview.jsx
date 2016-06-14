@@ -23,17 +23,23 @@ export default class GameView extends React.Component {
     document.addEventListener('keydown',(event)=>{
       const keyName = event.key;
       if (keyName === ' ') {
-        // if(this.props.gameState==='WAITING'){
-        //   this.props.actions.startGame();
-        // }else
-        if(this.props.gameState === 'MOVING'){
-          this.props.actions.newBlock({...this.state.active});
+        let oldsize = this.props.gradient.length;
+
+        if(this.props.gameState === 'MOVING' && this.props.player.myId == this.props.player.active){
+          this.props.actions.newBlock({...this.state.active,gameId:this.props.gameId});
+        }
+
+        //signal grad size change
+        let newsize = this.props.gradient.length;
+        if(oldsize-1 != newsize){
+          this.props.actions.shareGradient({grad:this.props.gradient,gameId:this.props.gameId});
         }
       }
     });
   }
 
   _onAnimate = () => {
+
     if(this.props.gameState === 'PLACING'){
       this.state={
         active:this.props.stack.active
@@ -41,6 +47,7 @@ export default class GameView extends React.Component {
       this.props.actions.moveBlock();
     }
     if(this.props.gameState === 'MOVING'){
+      //ugly as hell i know will refactor
       if(this.state.active.center.z>=25&&this.state.active.direction.z==1){
         let newDirection = utils.multiplyCoordinates(this.state.active.direction,-1);
         this.setState({active:{...this.state.active,direction:newDirection}});

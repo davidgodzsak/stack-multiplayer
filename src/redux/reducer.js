@@ -17,12 +17,18 @@ export default function reducer(state = init, action) {
         return joinAccepted(state, action.payload);
       case 'START_GAME':
         return moveBlock(state);
-      case 'NEW_BLOCK':
-        return newBlock(state, action.payload);
       case 'MOVE_BLOCK':
         return moveBlock(state);
+      case 'NEW_BLOCK':
+        return newBlock(state, action.payload);
+      case 'SERVER_NEW_BLOCK':
+        return newBlock(state, action.payload);
       case 'GAME_OVER':
         return gameOver(state);
+      case 'SHARE_GRADIENT':
+        return state;
+      case 'SET_GRADIENT':
+        return setGradient(state, action.payload);
   }
   return state;
 }
@@ -39,8 +45,7 @@ function joinAccepted(state,payload){
 
 function newBlock(state,active) {
   //gradient
-  console.log('new');
-  let gradState={...state,gradient:setGradient(state)};
+  let gradState={...state,gradient:rndGradient(state)};
 
   //new block
   let last = lastBlock(state);
@@ -65,10 +70,12 @@ function newBlock(state,active) {
   return {...gradState, stack:newStack,gameState:'PLACING'}
 }
 
-
-
 function moveBlock(state){
   return {...state,gameState:'MOVING'}
+}
+
+function setGradient(state,grad){
+  return {...state,gradient:grad};
 }
 
 //------------------------------------------------------------------------------helper function
@@ -132,7 +139,7 @@ function cut(state,active){
 };
 
 
-function setGradient(state){
+function rndGradient(state){
   let newGradient =[...state.gradient];
   newGradient.splice(0,1);
   if (newGradient.length===1){

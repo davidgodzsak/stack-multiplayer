@@ -6,7 +6,6 @@ export default class Gradient{
       this.from = from;
     } else {
       this.from = from.split('(')[1].split(',').map((a)=>parseInt(a));
-      console.log(from.split('(')[1].split(',').map((a)=>parseInt(a)));
     }
     this.to = rndColour();
   }

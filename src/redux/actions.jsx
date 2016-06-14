@@ -24,6 +24,12 @@ export function newBlock(prop) {
     payload:prop
   };
 }
+export function serverNewBlock(prop) {
+  return {
+    type: 'SERVER_NEW_BLOCK',
+    payload:prop
+  };
+}
 
 export function moveBlock() {
   return {
@@ -35,4 +41,18 @@ export function gameOver() {
   return{
     type: 'GAME_OVER'
   }
+}
+
+export function shareGradient(grad){
+  return {
+    type: 'SHARE_GRADIENT',
+    payload:grad
+  };
+}
+
+export function setGradient(grad){
+  return {
+    type: 'SET_GRADIENT',
+    payload:grad
+  };
 }

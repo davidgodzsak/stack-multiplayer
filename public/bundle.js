@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "35e083720501f716b642"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7ae4665988f5f06fee6d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -31194,8 +31194,8 @@
 	  WebkitTransition: 'all 2s ease-in-out'
 	};
 	var transition05 = {
-	  transition: 'all 2s ease-in-out',
-	  WebkitTransition: 'all 2s ease-in-out'
+	  transition: 'all 0.5s ease-in-out',
+	  WebkitTransition: 'all 0.5s ease-in-out'
 	};
 
 	var App = function App(props) {
@@ -31235,7 +31235,7 @@
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { style: props.gameState === 'MENU' ? { filter15: filter15 } : props.gameState === 'WAITING' ? _extends({}, filter5, transition2) : props.player.active !== props.player.myId ? _extends({}, filter5, transition2) : _extends({}, transition05) },
+	      { style: props.gameState === 'MENU' ? _extends({}, filter15) : props.gameState === 'WAITING' ? _extends({}, filter15, transition2) : props.player.active !== props.player.myId ? _extends({}, filter5, transition2) : _extends({}, transition05) },
 	      _react2.default.createElement(_gameview2.default, props)
 	    )
 	  );

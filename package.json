@@ -4,7 +4,9 @@
   "description": "A multiplayer game based on Ketchapp Stack",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "webpack": "webpack"
+
   },
   "repository": {
     "type": "git",

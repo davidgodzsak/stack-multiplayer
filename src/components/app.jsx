@@ -34,7 +34,7 @@ const App = (props) => (
         <div style={props.gameState === 'MENU'  ?
                         {...filter15} :
                         props.gameState === 'WAITING'  ?
-                            {...filter15,...transition2} :
+                            {...filter5,...transition2} :
                             props.player.active !== props.player.myId ?
                                 {...filter5,...transition2} :
                                 {...transition05}}>

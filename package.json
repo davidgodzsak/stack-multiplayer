@@ -2,7 +2,7 @@
   "name": "stack-multiplayer",
   "version": "1.0.0",
   "description": "A multiplayer game based on Ketchapp Stack",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js"
   },

@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "507ff9128d70967073f7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "35e083720501f716b642"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -31157,6 +31157,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(150);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -31176,6 +31178,25 @@
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var filter15 = {
+	  filter: 'blur(15px)',
+	  WebkitFilter: 'blur(15px)'
+	};
+
+	var filter5 = {
+	  filter: 'blur(5px)',
+	  WebkitFilter: 'blur(5px)'
+	};
+
+	var transition2 = {
+	  transition: 'all 2s ease-in-out',
+	  WebkitTransition: 'all 2s ease-in-out'
+	};
+	var transition05 = {
+	  transition: 'all 2s ease-in-out',
+	  WebkitTransition: 'all 2s ease-in-out'
+	};
 
 	var App = function App(props) {
 	  return _react2.default.createElement(
@@ -31214,7 +31235,7 @@
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { style: props.gameState === 'MENU' ? { filter: 'blur(15px)' } : props.gameState === 'WAITING' ? { filter: 'blur(5px)' } : props.player.active !== props.player.myId ? { filter: 'blur(5px)', transition: 'all 2s ease-in-out' } : { transition: 'all 0.5s ease-in-out' } },
+	      { style: props.gameState === 'MENU' ? { filter15: filter15 } : props.gameState === 'WAITING' ? _extends({}, filter5, transition2) : props.player.active !== props.player.myId ? _extends({}, filter5, transition2) : _extends({}, transition05) },
 	      _react2.default.createElement(_gameview2.default, props)
 	    )
 	  );
@@ -31418,8 +31439,10 @@
 	    _this.size = { width: window.innerWidth, height: window.innerHeight };
 
 	    document.addEventListener('keydown', function (event) {
+	      event.preventDefault();
 	      var keyName = event.key;
-	      if (keyName === ' ') {
+	      var charCode = event.charCode;
+	      if (keyName === ' ' || charCode === 32) {
 	        var oldsize = _this.props.gradient.length;
 
 	        if (_this.props.gameState === 'MOVING' && _this.props.player.myId == _this.props.player.active) {

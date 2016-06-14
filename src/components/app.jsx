@@ -4,6 +4,26 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from '../redux/actions';
 import GameView from './gameview';
 
+
+var filter15={
+  filter:'blur(15px)',
+  WebkitFilter:'blur(15px)'
+};
+
+var filter5={
+  filter:'blur(5px)',
+  WebkitFilter:'blur(5px)'
+}
+
+var transition2={
+  	transition: 'all 2s ease-in-out',
+    WebkitTransition: 'all 2s ease-in-out'
+}
+var transition05={
+  	transition: 'all 2s ease-in-out',
+    WebkitTransition: 'all 2s ease-in-out'
+}
+
 const App = (props) => (
       <div>
         <h1>Stacks</h1>
@@ -12,12 +32,12 @@ const App = (props) => (
         <p style={{position:'fixed', top:'50px', left:'50px'}}>{props.player.players[0].name}: {props.player.players[0].points}</p>
         <p style={{position:'fixed', top:'50px', right:'50px'}}>{props.player.players[1].name}: {props.player.players[1].points}</p>
         <div style={props.gameState === 'MENU'  ?
-                        {filter: 'blur(15px)'} :
+                        {filter15} :
                         props.gameState === 'WAITING'  ?
-                            {filter: 'blur(5px)'} :
+                            {...filter5,...transition2} :
                             props.player.active !== props.player.myId ?
-                                {filter: 'blur(5px)',transition: 'all 2s ease-in-out'} :
-                                {transition: 'all 0.5s ease-in-out'}}>
+                                {...filter5,...transition2} :
+                                {...transition05}}>
           <GameView {...props} />
         </div>
       </div>

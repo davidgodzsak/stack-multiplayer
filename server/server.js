@@ -6,6 +6,25 @@ var app = express();
 var server = http.createServer(app);
 var io = socketio.listen(server);
 
+
+
+
+app.use(express.static(__dirname, 'public'));
+
+//routes
+// app.get('/', function (req, res) {
+//    res.status(200).send('BestSongFinder\n'+
+//                         '---------------\n'+
+//                         'Go to /albums to get the all albums, or /albums/:id/.\n'+
+//                         'To get top songs go to /albums/:id/best?top=n.\n'+
+//                         'Post albums to /albums in json.\n');
+// });
+
+//asd
+
+
+
+
 function randomString() {
   return Date.now().toString();
 }

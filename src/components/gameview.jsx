@@ -21,8 +21,10 @@ export default class GameView extends React.Component {
 
 
     document.addEventListener('keydown',(event)=>{
+      event.preventDefault();
       const keyName = event.key;
-      if (keyName === ' ') {
+      const charCode = event.charCode;
+      if (keyName === ' ' || charCode === 32) {
         let oldsize = this.props.gradient.length;
 
         if(this.props.gameState === 'MOVING' && this.props.player.myId == this.props.player.active){

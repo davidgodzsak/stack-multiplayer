@@ -9,7 +9,7 @@ import App from './components/app';
 import io from 'socket.io-client';
 import { joinAccepted, startGame, serverNewBlock, setGradient } from './redux/actions';
 
-let socket = io('https://stack-multiplayer.herokuapp.com/');
+let socket = io('localhost:3000');
 
 
 //server messages
